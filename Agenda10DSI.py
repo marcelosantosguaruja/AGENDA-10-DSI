@@ -12,7 +12,7 @@ os.system("cls" if os.name == "nt" else "clear")
 # CONFIGURAÇÃO
 # -----------------------------
 
-MEDIA_MINIMA = 6.0
+MEDIA_MINIMA = 6.0  #Aqui defini a média mínima de aprovação
 
 # -----------------------------
 # ENTRADA DE DADOS
@@ -26,11 +26,13 @@ nome_aluno = input("Digite o nome do aluno: ").strip()
 cpf_aluno = input("Digite o CPF do aluno (xxx.xxx.xxx-xx): ").strip()
 disciplina = input("Digite o nome da matéria: ").strip()
 
+# A necessidade de dados acima, se faz para a individualização do aluno em relação as notas, usando o CPF como id.
+
 # -----------------------------
 # LANÇAMENTO DAS NOTAS
 # -----------------------------
 
-notas = []
+notas = []  # cada bimestre pede 2 notas. Logo 4 bimestres = 8 notas
 
 quantidade = int(input("Quantas notas deseja lançar? "))
 
@@ -41,6 +43,8 @@ for i in range(quantidade):
                 input(f"Digite a nota {i + 1} (0 a 10): ")
                 .replace(",", ".")
             )
+
+# nas proximas linhas irei delimitar a nota maxima sendo 10.
 
             if 0 <= nota <= 10:
                 notas.append(nota)
@@ -57,7 +61,7 @@ for i in range(quantidade):
 
 if len(notas) > 0:
 
-    media = sum(notas) / len(notas)
+    media = sum(notas) / len(notas)  #Modulo para calcular as medias com base nas notas informadas.
 
     # -----------------------------
     # RESULTADO
